@@ -1,3 +1,4 @@
+import { ConfigService } from './../config/config.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LayoutComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private configService: ConfigService
+  ) { }
 
   ngOnInit(): void {
   }
 
+  emit(): void {
+    this.configService.onEmitChange();
+  }
 }
